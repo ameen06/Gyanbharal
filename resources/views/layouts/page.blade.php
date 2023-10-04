@@ -10,7 +10,6 @@
 
     <!-- Styles -->
     @vite(['resources/css/app.css','resources/js/app.js'])
-    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
     @stack('styles')
 </head>
 <body class="font-sans antialiased">
@@ -37,6 +36,19 @@
                 console.log('clickede');
                 $('#mheader-mobile-menu').toggle();
             });
+        });
+
+        // page share
+        const shareData = {
+            title: "Gyanbharal",
+            url: "https://gyanbharal.com",
+        };
+
+        const btn = $('#share-btn');
+
+        // Share must be triggered by "user activation"
+        $('#share-btn').on("click", async () => {
+            await navigator.share(shareData);
         });
     </script>
     @stack('scripts')

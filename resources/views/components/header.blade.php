@@ -1,6 +1,6 @@
 {{-- header --}}
-<header class="w-full bg-white fixed top-0 left-0 shadow-md z-50">
-    <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+<header class="w-full md:bg-white fixed top-0 left-0 shadow-md z-50">
+    <div class="mx-auto max-w-7xl bg-white px-2 sm:px-6 lg:px-8">
         <div class="relative flex h-16 items-center justify-between">
         <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
             <!-- Mobile menu button-->
@@ -32,8 +32,10 @@
             </div>
             <div class="hidden sm:ml-6 sm:block">
                 <nav class="flex space-x-4">
-                    <a href="/" class="px-3 py-2 text-sm font-medium web-nav-active" aria-current="page">Home</a>
-                    <a href="#" class="text-gray-700 hover:text-violet-500 px-3 py-2 text-sm font-medium">Share</a>
+                    <a href="/" class="px-3 py-2 text-sm font-medium web-nav-active {{ '/' == request()->path() ? 'border-b-2 border-violet-500 text-violet-600 font-bold' : 'text-gray-700 hover:text-violet-500' }}" aria-current="page">Home</a>
+                    <a id="share-btn" class="text-gray-700 hover:text-violet-500 px-3 py-2 text-sm font-medium cursor-pointer">Share</a>
+                    <a href="/privacy-policy" class="px-3 py-2 text-sm font-medium web-nav-active {{ '/privacy-policy' == request()->path() ? 'border-b-2 border-violet-500 text-violet-600 font-bold' : 'text-gray-700 hover:text-violet-500' }}" aria-current="page">Privacy Policy</a>
+                    <a href="/contact-us" class="px-3 py-2 text-sm font-medium web-nav-active {{ '/contact-us' == request()->path() ? 'border-b-2 border-violet-500 text-violet-600 font-bold' : 'text-gray-700 hover:text-violet-500' }}" aria-current="page">Contact Us</a>
                 </nav>
             </div>
         </div>
@@ -41,10 +43,17 @@
     </div>
     
     <!-- Mobile menu, show/hide based on menu state. -->
-    <div class="w-full sm:hidden" id="mheader-mobile-menu">
-        <nav class="w-full space-y-1 px-2 pb-3 pt-2">
-        <a href="/" class="block rounded-md px-3 py-2 text-base font-medium mob-nav-active" aria-current="page">Home</a>
-        <a href="#" class="text-gray-500 hover:text-white hover:bg-violet-600 rounded-md block px-3 py-2 text-base font-medium">Share</a>
+    <div class="w-full h-screen bg-black bg-opacity-40 sm:hidden" id="mheader-mobile-menu">
+        <nav class="w-full h-full max-w-[70%] bg-white space-y-1 px-2 pb-3 pt-2">
+            <a href="/" class="block rounded-md px-3 py-2 text-base font-medium {{ '/' == request()->path() ? 'bg-violet-800 text-white hover:text-violet-500' : 'text-gray-500 hover:text-white hover:bg-violet-600' }}" aria-current="page">Home</a>
+            <a id="share-btn" class="text-gray-500 hover:text-white hover:bg-violet-600 rounded-md px-3 py-2 text-base font-medium w-full inline-flex items-center gap-4">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M7.217 10.907a2.25 2.25 0 100 2.186m0-2.186c.18.324.283.696.283 1.093s-.103.77-.283 1.093m0-2.186l9.566-5.314m-9.566 7.5l9.566 5.314m0 0a2.25 2.25 0 103.935 2.186 2.25 2.25 0 00-3.935-2.186zm0-12.814a2.25 2.25 0 103.933-2.185 2.25 2.25 0 00-3.933 2.185z" />
+                </svg>
+                Share
+            </a>
+            <a href="/privacy-policy" class="{{ '/privacy-policy' == request()->path() ? 'bg-violet-800 text-white hover:text-violet-500' : 'text-gray-500 hover:text-white hover:bg-violet-600' }} rounded-md block px-3 py-2 text-base font-medium">Privacy Policy</a>
+            <a href="/contact" class="{{ '/contact' == request()->path() ? 'bg-violet-800 text-white hover:text-violet-500' : 'text-gray-500 hover:text-white hover:bg-violet-600' }} rounded-md block px-3 py-2 text-base font-medium">Contact Us</a>
         </nav>
     </div>
 </header>

@@ -25,6 +25,9 @@ Route::get('/', function () {
     return view('welcome', ['slides' => $slides]);
 });
 
+Route::view('/contact-us', 'contact');
+Route::view('/privacy-policy', 'privacy');
+
 // words
 Route::get('/english-to-assamese', [WordsController::class, 'to_assamese'])->name('e-a-words');
 Route::get('/assamese-to-english', [WordsController::class, 'to_english'])->name('a-e-words');
