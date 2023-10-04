@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DailyFactsController;
 use App\Http\Controllers\KidsController;
+use App\Http\Controllers\PhrasesController;
 use App\Http\Controllers\WordsController;
 use Illuminate\Support\Facades\Route;
 
@@ -20,7 +21,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// words
 Route::get('/english-to-assamese', [WordsController::class, 'to_assamese'])->name('e-a-words');
 Route::get('/assamese-to-english', [WordsController::class, 'to_english'])->name('a-e-words');
+
+// kids page
 Route::get('/kids-playstream', [KidsController::class, 'index'])->name('kids-playstream');
+
+// daily facts
 Route::get('/daily-facts', [DailyFactsController::class, 'index'])->name('daily-facts');
+
+// phrases
+Route::get('/phrases', [PhrasesController::class, 'index'])->name('phrases.index');
+Route::get('/phrases/{id}', [PhrasesController::class, 'show'])->name('phrases.show');
