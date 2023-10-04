@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DailyFactsController;
+use App\Http\Controllers\EssaysController;
 use App\Http\Controllers\GrammerController;
 use App\Http\Controllers\KidsController;
 use App\Http\Controllers\PhrasesController;
@@ -39,3 +40,7 @@ Route::get('/phrases/{id}', [PhrasesController::class, 'show'])->name('phrases.s
 // grammer
 Route::get('/grammer', [GrammerController::class, 'index'])->name('grammer.index');
 Route::get('/grammer/{id}/{title}', [GrammerController::class, 'show'])->name('grammer.show');
+
+// essays
+Route::get('/essays', [EssaysController::class, 'index'])->name('essays.index');
+Route::get('/essays/{id}/{title}', [EssaysController::class, 'show'])->name('essays.show');

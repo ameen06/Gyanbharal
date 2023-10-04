@@ -114,7 +114,7 @@
                     </div>
                 </a>
 
-                <a href="#" class="w-full h-fit group">
+                <a href="{{route('essays.index')}}" class="w-full h-fit group">
                     <div class="w-full bg-white pt-4 text-center rounded-md shadow-2xl shadow-amber-100 overflow-hidden group-hover:shadow-cyan-600">
                         <img src="https://img.freepik.com/free-vector/english-alphabets-many-colors_1308-4763.jpg" alt="Letters" class="w-20 mx-auto">
 
