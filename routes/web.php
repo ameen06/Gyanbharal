@@ -6,6 +6,7 @@ use App\Http\Controllers\GrammerController;
 use App\Http\Controllers\KidsController;
 use App\Http\Controllers\PhrasesController;
 use App\Http\Controllers\WordsController;
+use App\Models\HomeSlide;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,7 +21,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $slides = HomeSlide::get();
+    return view('welcome', ['slides' => $slides]);
 });
 
 // words
