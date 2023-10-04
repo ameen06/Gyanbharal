@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DailyFactsController;
+use App\Http\Controllers\GrammerController;
 use App\Http\Controllers\KidsController;
 use App\Http\Controllers\PhrasesController;
 use App\Http\Controllers\WordsController;
@@ -34,3 +35,7 @@ Route::get('/daily-facts', [DailyFactsController::class, 'index'])->name('daily-
 // phrases
 Route::get('/phrases', [PhrasesController::class, 'index'])->name('phrases.index');
 Route::get('/phrases/{id}', [PhrasesController::class, 'show'])->name('phrases.show');
+
+// grammer
+Route::get('/grammer', [GrammerController::class, 'index'])->name('grammer.index');
+Route::get('/grammer/{id}/{title}', [GrammerController::class, 'show'])->name('grammer.show');
