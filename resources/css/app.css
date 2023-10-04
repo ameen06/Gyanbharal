@@ -5,7 +5,41 @@
 @tailwind utilities;
 
 @layer base {
-    html {
-      font-family: 'Poppins', system-ui, sans-serif;
-    }
+  html {
+    font-family: 'Poppins', system-ui, sans-serif;
+  }
+  /* article styles */
+  .article p {
+    @apply mt-4 text-gray-700;
+  }
+  .article h2 {
+    @apply mt-6 text-gray-800 text-2xl font-bold;
+  }
+  .article h3 {
+    @apply mt-6 text-gray-800 text-xl font-bold;
+  }
+
+  .article a {
+    @apply text-blue-600;
+  }
+  .article a:hover {
+    @apply text-blue-800;
+  }
+  .article a:visited {
+    @apply text-violet-600;
+  }
+
+  .article ul {
+    @apply list-disc pl-8 m-0 mt-4;
+  }
+  .article ol {
+    @apply list-decimal pl-8 m-0 mt-4;
+  }
+  .article ul > li, .article ol > li {
+    @apply text-gray-700;
+  }
+
+  .article img {
+    @apply w-full my-4;
+  }
 }
