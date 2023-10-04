@@ -12,7 +12,7 @@
 
         <img src="https://ik.imagekit.io/k4cixy45r/{{$grammer->image_link}}" alt="{{$grammer->title}}" class="w-full mt-6">
 
-        <div class="mt-6 text-base text-gray-800">
+        <div class="mt-6 text-base text-gray-800 article">
             {!! $grammer->content !!}
         </div>
     </div>
