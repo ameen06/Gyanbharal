@@ -27,6 +27,7 @@ Route::get('/', function () {
 
 Route::view('/contact-us', 'contact');
 Route::view('/privacy-policy', 'privacy');
+Route::view('/quiz', 'quiz')->name('quiz');
 
 // words
 Route::get('/english-to-assamese', [WordsController::class, 'to_assamese'])->name('e-a-words');

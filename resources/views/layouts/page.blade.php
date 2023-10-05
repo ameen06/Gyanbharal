@@ -33,7 +33,6 @@
         $(document).ready(function(){
             // mobile header menu
             $('#mheader-menu-btn').on('click', function(){
-                console.log('clickede');
                 $('#mheader-mobile-menu').toggle();
             });
         });
@@ -44,10 +43,7 @@
             url: "https://gyanbharal.com",
         };
 
-        const btn = $('#share-btn');
-
-        // Share must be triggered by "user activation"
-        $('#share-btn').on("click", async () => {
+        $('.share-btn').on("click", async () => {
             await navigator.share(shareData);
         });
     </script>
