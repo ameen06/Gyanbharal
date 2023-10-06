@@ -43,80 +43,59 @@ Quiz - Gyanbharal
     </div>
 
     <div class="w-full pt-16">
-        <input type="hidden" value="3" id="total-questions">
+        <input type="hidden" value="{{$questions->count()}}" id="total-questions">
+
         <section id="quiz-slide" class="splide pb-6 bg-white shadow-md rounded-2xl overflow-hidden" aria-label="Gyanbharal Quiz Questions">
             <div class="splide__track">
                 <ul class="splide__list">
-                    @for ($x=1;$x<4;$x++)  
+                    @foreach($questions as $question) 
                     <li class="splide__slide">
                         <div class="w-full pt-10 pb-8 px-4 bg-white">
                             <div class="w-full max-w-sm mx-auto">
-                                <p class="text-base font-medium text-gray-700 text-center">How many legs does a spider have?</p>
+                                <p class="text-base font-medium text-gray-700 text-center">{{$question->question}}</p>
                 
                                 <form class="w-full mt-4 question-options">
                                     <div class="mt-4 flex items-center pl-4 border-2 border-gray-200 rounded text-left">
-                                        <input id="question{{$x}}-answer1" data-id="qyrt" type="radio" value="4 Legs" name="question{{$x}}" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300">
-                                        <label for="question{{$x}}-answer1" class="w-full py-4 ml-6 text-sm font-medium text-gray-900">4 Legs</label>
+                                        <input id="question{{$loop->index}}-answer1" data-id="qyrt" type="radio" value="4 Legs" name="question{{$loop->index}}" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300">
+                                        <label for="question{{$loop->index}}-answer1" class="w-full py-4 ml-6 text-sm font-medium text-gray-900">{{$question->option_2}}</label>
                                     </div>
                                     <div class="mt-4 flex items-center pl-4 border-2 border-gray-200 rounded text-left">
-                                        <input id="question{{$x}}-answer2" data-id="bdfowd" type="radio" value="8 Legs" name="question{{$x}}" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300">
-                                        <label for="question{{$x}}-answer2" class="w-full py-4 ml-6 text-sm font-medium text-gray-900">8 Legs</label>
+                                        <input id="question{{$loop->index}}-answer2" data-id="bdfowd" type="radio" value="8 Legs" name="question{{$loop->index}}" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300">
+                                        <label for="question{{$loop->index}}-answer2" class="w-full py-4 ml-6 text-sm font-medium text-gray-900">{{$question->answer}}</label>
                                     </div>
                                     <div class="mt-4 flex items-center pl-4 border-2 border-gray-200 rounded text-left">
-                                        <input id="question{{$x}}-answer3" data-id="xenuj" type="radio" value="6 Legs" name="question{{$x}}" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300">
-                                        <label for="question{{$x}}-answer3" class="w-full py-4 ml-6 text-sm font-medium text-gray-900">6 Legs</label>
+                                        <input id="question{{$loop->index}}-answer3" data-id="xenuj" type="radio" value="6 Legs" name="question{{$loop->index}}" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300">
+                                        <label for="question{{$loop->index}}-answer3" class="w-full py-4 ml-6 text-sm font-medium text-gray-900">{{$question->option_3}}</label>
                                     </div>
                                     <div class="mt-4 flex items-center pl-4 border-2 border-gray-200 rounded text-left">
-                                        <input id="question{{$x}}-answer4" data-id="wyixse" type="radio" value="12 Legs" name="question{{$x}}" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300">
-                                        <label for="question{{$x}}-answer4" class="w-full py-4 ml-6 text-sm font-medium text-gray-900">12 Legs</label>
+                                        <input id="question{{$loop->index}}-answer4" data-id="wyixse" type="radio" value="12 Legs" name="question{{$loop->index}}" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300">
+                                        <label for="question{{$loop->index}}-answer4" class="w-full py-4 ml-6 text-sm font-medium text-gray-900">{{$question->option_1}}</label>
                                     </div>
                                 </form>
                             </div>
                         </div>
                     </li>
-                    @endfor
+                    @endforeach
                 </ul>
             </div>
         </section>
-        <div class="hidden w-full pt-10 pb-8 px-4 bg-white shrink-0 shadow-md rounded-2xl">
-            <div class="w-full max-w-sm mx-auto text-center">
-                <p class="text-base font-medium text-gray-700">How many legs does a spider have?</p>
-
-                <form class="w-full mt-6">
-                    <div class="flex items-center pl-4 border-2 border-gray-200 rounded text-left">
-                        <input id="bordered-radio-1" type="radio" value="" name="bordered-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300">
-                        <label for="bordered-radio-1" class="w-full py-4 ml-6 text-sm font-medium text-gray-900">4 Legs</label>
-                    </div>
-                    <div class="mt-4 flex items-center pl-4 border-2 border-gray-200 rounded text-left">
-                        <input id="bordered-radio-1" type="radio" value="" name="bordered-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300">
-                        <label for="bordered-radio-1" class="w-full py-4 ml-6 text-sm font-medium text-gray-900">8 Legs</label>
-                    </div>
-                    <div class="mt-4 flex items-center pl-4 border-2 border-gray-200 rounded text-left">
-                        <input id="bordered-radio-1" type="radio" value="" name="bordered-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300">
-                        <label for="bordered-radio-1" class="w-full py-4 ml-6 text-sm font-medium text-gray-900">6 Legs</label>
-                    </div>
-                    <div class="mt-4 flex items-center pl-4 border-2 border-gray-200 rounded text-left">
-                        <input id="bordered-radio-1" type="radio" value="" name="bordered-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300">
-                        <label for="bordered-radio-1" class="w-full py-4 ml-6 text-sm font-medium text-gray-900">12 Legs</label>
-                    </div>
-                </form>
-            </div>
-        </div>
 
         {{-- score page --}}
         <div id="score-page" class="w-full pt-10 pb-8 px-4 bg-white shrink-0 shadow-md rounded-2xl">
             <div class="w-full max-w-sm mx-auto text-center">
-                <p class="text-base font-normal text-green-600">Score - 360</p>
+                <p class="text-base font-normal text-green-600">Score - <span class="total-score"></span></p>
 
                 <div class="w-full mt-6 grid grid-cols-2 items-center gap-4">
                     <div class="w-32 h-32 mx-auto shrink-0 rounded-full border-4 border-gray-200 flex items-center justify-center">
-                        <p class="text-5xl font-semibold text-blue-500">2/5</p>
+                        <p class="text-5xl font-semibold text-blue-500">
+                            <span class="tot-correct"></span>/<span class="tot-questions"></span>
+                        </p>
                     </div>
 
                     <div class="w-full text-left">
-                        <p class="text-gray-700">Total Questions: <strong>5</strong></p>
-                        <p class="text-gray-700">Total <span class="text-green-600">Correct</span>: <strong>2</strong></p>
-                        <p class="text-gray-700">Total <span class="text-red-500">Wrong</span>: <strong>3</strong></p>
+                        <p class="text-gray-700">Total Questions: <strong class="tot-questions"></strong></p>
+                        <p class="text-gray-700">Total <span class="text-green-600">Correct</span>: <strong class="tot-correct"></strong></p>
+                        <p class="text-gray-700">Total <span class="text-red-500">Wrong</span>: <strong class="tot-wrong"></strong></p>
                     </div>
                 </div>
 
@@ -130,6 +109,7 @@ Quiz - Gyanbharal
 
 @push('scripts')
 <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
 <script>
 $(document).ready(function(){
     const quiz = new Splide('#quiz-slide', {
@@ -152,27 +132,68 @@ $(document).ready(function(){
         .appendTo($form);            
     });
 
-    var TotalQuestions = $('#total-questions').val();
     $('#score-page').hide();
+    $('#quiz-slide').hide();
+
+    var TotalQuestions = $('#total-questions').val();
+    $('.tot-questions').text(TotalQuestions);
+
+    function checkQuizAlreadyTaken(){
+        var cookieExists = $.cookie('userQuizResult') !== undefined;
+
+        if (cookieExists) {
+            $('#score-page').show();
+            $('#quiz-slide').hide();
+
+            var cookieValue = $.cookie("userQuizResult");
+            var cookieQuizResult = JSON.parse(cookieValue);
+            $('.tot-correct').text(cookieQuizResult.correct_answers);
+            $('.tot-wrong').text(cookieQuizResult.wrong_answers);
+            $('.total-score').text(cookieQuizResult.total_mark);
+            $('#score').text(cookieQuizResult.total_mark);
+        } else {
+            $('#score-page').hide();
+            $('#quiz-slide').show();
+        }
+    }
+    checkQuizAlreadyTaken();
     
-    $score = 0;
+    var score = 0;
+    var correct = 0;
+    var wrong = 0;
     function updateScore(){
-        $score += 120;
-        $('#score').text($score);
+        score += 120;
+        correct += 1;
+        $('#score').text(score);
+    }
+
+    function endQuiz(){
+        $('.tot-correct').text(correct);
+        $('.tot-wrong').text(wrong);
+        $('.total-score').text(score);
+
+        var quizResult = {
+            correct_answers: correct,
+            wrong_answers: wrong,
+            total_mark: score
+        };
+        var quizResultObject = JSON.stringify(quizResult);
+        $.cookie("userQuizResult", quizResultObject, { expires: 1 });
     }
 
     $('form.question-options input').change(function() {
         var value = $(this).val();
-        $(this).prop('disabled', true);
         if($(this).data('id') == "bdfowd"){
             updateScore();
+        }else {
+            wrong += 1;
         }
         setTimeout(() => {
             if(slideController.getNext() == -1){
                 $('#quiz-slide').hide();
                 $('#score-page').show();
+                endQuiz();
             }else{
-                $(this).prop('disabled', false);
                 quiz.go('>');
             }
         }, 1000);

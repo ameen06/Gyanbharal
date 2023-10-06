@@ -5,6 +5,7 @@ use App\Http\Controllers\EssaysController;
 use App\Http\Controllers\GrammerController;
 use App\Http\Controllers\KidsController;
 use App\Http\Controllers\PhrasesController;
+use App\Http\Controllers\QuizController;
 use App\Http\Controllers\WordsController;
 use App\Models\HomeSlide;
 use Illuminate\Support\Facades\Route;
@@ -27,7 +28,7 @@ Route::get('/', function () {
 
 Route::view('/contact-us', 'contact');
 Route::view('/privacy-policy', 'privacy');
-Route::view('/quiz', 'quiz')->name('quiz');
+Route::get('/quiz', [QuizController::class, 'index'])->name('quiz');
 
 // words
 Route::get('/english-to-assamese', [WordsController::class, 'to_assamese'])->name('e-a-words');
