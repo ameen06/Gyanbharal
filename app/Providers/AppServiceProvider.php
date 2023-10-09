@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\ServiceProvider;
 use ImageKit\ImageKit;
 use League\Flysystem\Filesystem;
-use TaffoVelikoff\ImageKitAdapter\ImageKitAdapter;
+use TaffoVelikoff\ImageKitAdapter\ImagekitAdapter;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -16,7 +16,24 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        $this->app->bind(ImagekitAdapter::class, function ($app, $config) {
+            return new ImagekitAdapter(
+                new ImageKit(
+                    config('filesystems.disks.imagekit.public_key'),
+                    config('filesystems.disks.imagekit.private_key'),
+                    config('filesystems.disks.imagekit.endpoint_url')
+                )
+            );
+        });
+
+        Storage::extend('imagekit', function ($app, $config) {
+            $adapter = $app->make(ImagekitAdapter::class);
+            return new FilesystemAdapter(
+                new Filesystem($adapter, $config),
+                $adapter,
+                $config
+            );
+        });
     }
 
     /**
@@ -24,29 +41,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        Storage::extend('imagekit', function ($app, $config) {
-            $adapter = new ImagekitAdapter(
-    
-                new ImageKit(
-                    $config['public_key'],
-                    $config['private_key'],
-                    $config['endpoint_url']
-                ),
-    
-                $options = [ // Optional
-                    'purge_cache_update'    => [
-                        'enabled'       => true,
-                        'endpoint_url'  => 'your_endpoint_url'
-                     ]
-                ] 
-    
-            );
-    
-            return new FilesystemAdapter(
-                new Filesystem($adapter, $config),
-                $adapter,
-                $config
-            );
-        });
+        //
     }
 }
