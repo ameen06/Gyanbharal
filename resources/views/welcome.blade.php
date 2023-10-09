@@ -107,6 +107,18 @@ Gyanbharal
             </div>
         </div>
     </a>
+
+    @foreach ($pages as $page)
+    <a href="{{route('pages.show', [$page->id, str_replace(" ", "-", $page->page_title)])}}" class="w-full h-fit group">
+        <div class="w-full bg-white pt-4 text-center rounded-lg shadow-2xl shadow-amber-100 overflow-hidden group-hover:shadow-{{$color}}-300">
+            <img src="https://ik.imagekit.io/k4cixy45r/{{$page->page_icon}}" alt="{{$page->page_title}}" class="w-20 mx-auto">
+
+            <div class="w-full px-4 py-2 mt-4 bg-{{$color}}-400 group-hover:bg-{{$color}}-600">
+                <h2 class="text-base font-semibold text-gray-900">{{$page->page_title}}</h2>
+            </div>
+        </div>
+    </a>
+    @endforeach
 </div>
 
 @push('scripts')
