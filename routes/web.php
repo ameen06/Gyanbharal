@@ -3,11 +3,11 @@
 use App\Http\Controllers\DailyFactsController;
 use App\Http\Controllers\EssaysController;
 use App\Http\Controllers\GrammerController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KidsController;
 use App\Http\Controllers\PhrasesController;
 use App\Http\Controllers\QuizController;
 use App\Http\Controllers\WordsController;
-use App\Models\HomeSlide;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,14 +21,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    $slides = HomeSlide::get();
-    return view('welcome', ['slides' => $slides]);
-});
+Route::get('/', [HomeController::class, 'index']);
 
 Route::view('/contact-us', 'contact');
 Route::view('/privacy-policy', 'privacy');
 Route::get('/quiz', [QuizController::class, 'index'])->name('quiz');
+
+// Pages
+Route::get('/pages/{id}/{title}', [HomeController::class, 'page_show'])->name('pages.show');
 
 // words
 Route::get('/english-to-assamese', [WordsController::class, 'to_assamese'])->name('e-a-words');
