@@ -10,7 +10,7 @@
 
     <!-- Styles -->
     @vite(['resources/css/app.css','resources/js/app.js'])
-    @stack('styles')
+    
 </head>
 <body class="font-sans antialiased">
     <x-header>
