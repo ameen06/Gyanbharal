@@ -6,6 +6,13 @@
     English Grammer
 </x-slot:title>
 
+<x-slot:seo>
+    <title>Mastering Language: Kids' Grammar Lessons Made Fun | Children's Directory</title>
+    <meta name="og:title" content="Mastering Language: Kids' Grammar Lessons Made Fun | Children's Directory">
+    <meta name="og:description" content="Enhance language skills with our 'Grammar' page, offering engaging lessons for kids. Make learning grammar enjoyable and effective as young minds grasp the foundations of language in a playful way">
+    <meta name="description" content="Enhance language skills with our 'Grammar' page, offering engaging lessons for kids. Make learning grammar enjoyable and effective as young minds grasp the foundations of language in a playful way">
+</x-slot:seo>
+
 <div class="w-full my-4 lg:my-[8%]">
     <div class="w-full px-4">
         <h1 class="font-bold text-2xl">English Grammer</h1>
@@ -24,7 +31,7 @@
             @foreach ($grammers as $grammer)
             <div class="w-full bg-white border border-gray-200 rounded-lg shadow">
                 <a href="{{route('grammer.show', [$grammer->id, str_replace(" ", "-", $grammer->title)])}}">
-                    <img class="rounded-t-lg" src="https://ik.imagekit.io/k4cixy45r/{{$grammer->image_link}}" alt="{{$grammer->title}}" />
+                    <img class="rounded-t-lg" src="{{env('IMAGEKIT_ENDPOINT').$grammer->image_link}}" alt="{{$grammer->title}}" />
                 </a>
                 <div class="p-5">
                     <a href="{{route('grammer.show', [$grammer->id, str_replace(" ", "-", $grammer->title)])}}">

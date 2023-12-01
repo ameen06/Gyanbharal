@@ -37,6 +37,13 @@
 Quiz - Gyanbharal
 </x-slot:title>
 
+<x-slot:seo>
+<title>Challenge the Mind: Interactive Quizzes for Kids | Children's Directory</title>
+<meta name="og:title" content="Challenge the Mind: Interactive Quizzes for Kids | Children's Directory">
+<meta name="og:description" content="Stimulate young minds with our 'Quiz' page, where learning becomes an adventure. Engage in interactive quizzes designed for kids, fostering knowledge and critical thinking in a fun and exciting way">
+<meta name="description" content="Stimulate young minds with our 'Quiz' page, where learning becomes an adventure. Engage in interactive quizzes designed for kids, fostering knowledge and critical thinking in a fun and exciting way">
+</x-slot:seo>
+
 <div class="w-full relative">
     <div class="absolute top-0 right-0 z-10 text-sm font-light lg:text-base">
         Score: <span id="score" class="text-white px-4 py-1 bg-green-500 rounded-full font-medium">0</span>

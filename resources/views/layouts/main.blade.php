@@ -1,10 +1,29 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-D9RH298K5R"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-D9RH298K5R');
+    </script>
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>{{ $title }}</title>
+    <!-- SEO -->
+    <meta name="og:site_name" content="Gyan Bharal">
+    {{$seo}}
+    <meta name="robots" content="index, follow" />
+    <meta name="og:type" content="website" />
+    <meta name="og:image" content="https://ik.imagekit.io/3bdrc2hss/gyanbharal-og-image.webp">
+    <meta name="og:url" content="https://gyanbharal.in/">
+    <meta property="og:image:width" content="1200"/>
+    <meta property="og:image:height" content="630"/>
+    <link rel="shortcut icon" href="https://ik.imagekit.io/3bdrc2hss/gyanbharal-logo.png" type="image/x-icon">
 
     @vite(['resources/css/app.css','resources/js/app.js'])
     @stack('styles')

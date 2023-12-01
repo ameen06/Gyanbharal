@@ -6,6 +6,13 @@
     অ - A
 </x-slot:title>
 
+<x-slot:seo>
+<title>অ - A</title>
+<meta name="og:title" content="অ - A">
+<meta name="og:description" content="অ - A">
+<meta name="description" content="অ - A">
+</x-slot:seo>
+
 <div class="w-full mt-4 lg:mt-[8%]">
     {{-- search input --}}
     <div class="w-full px-4">

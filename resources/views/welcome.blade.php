@@ -10,8 +10,15 @@
 @endpush
 
 <x-slot:title>
-Gyanbharal
+Gyan Bharal
 </x-slot:title>
+
+<x-slot:seo>
+    <title>Welcome to a World of Wonder and Learning for Kids | Children's Directory</title>
+    <meta name="og:title" content="Welcome to a World of Wonder and Learning for Kids | Children's Directory">
+    <meta name="og:description" content="Embark on a journey of fun and education with our children's directory home page. Discover a curated collection of safe and exciting activities for kids. Start your adventure today!">
+    <meta name="description" content="Embark on a journey of fun and education with our children's directory home page. Discover a curated collection of safe and exciting activities for kids. Start your adventure today!">
+</x-slot:seo>
 
 <div class="w-full rounded-xl overflow-hidden shadow-sm">
     <section id="home-banners" class="splide" aria-label="Gyanbharal Banners">
@@ -19,7 +26,7 @@ Gyanbharal
                 <ul class="splide__list">
                     @foreach ($slides as $slide)   
                     <li class="splide__slide">
-                        <img src="https://ik.imagekit.io/k4cixy45r/{{$slide->image_link}}" alt="Slides">
+                        <img src="{{env('IMAGEKIT_ENDPOINT').$slide->image_link}}" alt="Slides">
                     </li>
                     @endforeach
                 </ul>
@@ -110,7 +117,7 @@ Gyanbharal
 
     @foreach ($pages as $page)
     <a href="{{route('pages.show', [$page->id, str_replace(" ", "-", $page->page_title)])}}" class="w-full h-fit group">
-        <div class="w-full bg-white pt-4 text-center rounded-lg shadow-2xl shadow-amber-100 overflow-hidden group-hover:shadow-{{$color}}-300">
+        <div class="w-full bg-white pt-4 text-center rounded-lg shadow-2xl shadow-{{$color}}-100 overflow-hidden group-hover:shadow-{{$color}}-300">
             <img src="https://ik.imagekit.io/k4cixy45r/{{$page->page_icon}}" alt="{{$page->page_title}}" class="w-20 mx-auto">
 
             <div class="w-full px-4 py-2 mt-4 bg-{{$color}}-400 group-hover:bg-{{$color}}-600">

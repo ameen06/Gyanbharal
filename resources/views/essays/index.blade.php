@@ -6,13 +6,20 @@
     Essays
 </x-slot:title>
 
+<x-slot:seo>
+<title>"Express and Create: Kids' Essays on Adventures and Imagination | Children's Directory</title>
+<meta name="og:title" content=""Express and Create: Kids' Essays on Adventures and Imagination | Children's Directory">
+<meta name="og:description" content="Encourage creativity and expression on our 'Essay' page, where young writers can share their thoughts on adventures, imagination, and more. Explore a world of words and storytelling">
+<meta name="description" content="Encourage creativity and expression on our 'Essay' page, where young writers can share their thoughts on adventures, imagination, and more. Explore a world of words and storytelling">
+</x-slot:seo>
+
 <div class="w-full my-4 lg:my-[8%]">
     <div class="w-full px-4">
         <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-4">
             @foreach ($essays as $essay)
             <div class="w-full bg-white border border-gray-200 rounded-lg shadow">
                 <a href="{{route('essays.show', [$essay->id, str_replace(" ", "-", $essay->title)])}}">
-                    <img class="rounded-t-lg" src="https://ik.imagekit.io/k4cixy45r/{{$essay->image_link}}" alt="{{$essay->title}}" />
+                    <img class="rounded-t-lg" src="{{env('IMAGEKIT_ENDPOINT').$essay->image_link}}" alt="{{$essay->title}}" />
                 </a>
                 <div class="p-5">
                     <a href="{{route('essays.show', [$essay->id, str_replace(" ", "-", $essay->title)])}}">
