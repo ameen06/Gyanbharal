@@ -3,15 +3,13 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\SlideResource\Pages;
-use App\Filament\Resources\SlideResource\RelationManagers;
 use App\Models\Slide;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Illuminate\support\Str;
 use Livewire\Features\SupportFileUploads\TemporaryUploadedFile;
 
 class SlideResource extends Resource
@@ -29,8 +27,8 @@ class SlideResource extends Resource
                 Forms\Components\FileUpload::make('image_link')
                 ->required()
                 ->getUploadedFileNameForStorageUsing(
-                    fn (TemporaryUploadedFile $file): string => (string) str($file->getClientOriginalName())
-                        ->prepend(time().'-'),
+                    fn (TemporaryUploadedFile $file): string => (string) str(Str::slug($file->getClientOriginalName()))
+                    ->prepend(time().'-')->append('.'.$file->getClientOriginalExtension()),
                 )
                 ->disk('imagekit')
                 ->directory('gyanbharal/kids/slides')

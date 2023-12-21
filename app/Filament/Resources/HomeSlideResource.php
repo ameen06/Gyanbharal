@@ -10,9 +10,8 @@ use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Livewire\Features\SupportFileUploads\TemporaryUploadedFile;
+use Illuminate\support\Str;
 
 class HomeSlideResource extends Resource
 {
@@ -27,8 +26,8 @@ class HomeSlideResource extends Resource
                 Forms\Components\FileUpload::make('image_link')
                     ->required()
                     ->getUploadedFileNameForStorageUsing(
-                        fn (TemporaryUploadedFile $file): string => (string) str($file->getClientOriginalName())
-                            ->prepend(time().'-'),
+                        fn (TemporaryUploadedFile $file): string => (string) str(Str::slug($file->getClientOriginalName()))
+                            ->prepend(time().'-')->append('.'.$file->getClientOriginalExtension()),
                     )
                     ->disk('imagekit')
                     ->directory('gyanbharal/home-slides')

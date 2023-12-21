@@ -18,7 +18,7 @@
         <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-4">
             @foreach ($essays as $essay)
             <div class="w-full bg-white border border-gray-200 rounded-lg shadow">
-                <a href="{{route('essays.show', [$essay->id, str_replace(" ", "-", $essay->title)])}}">
+                <a href="{{route('essays.show', [$essay->id, Str::slug($essay->title)])}}">
                     <img class="rounded-t-lg" src="{{env('IMAGEKIT_ENDPOINT').$essay->image_link}}" alt="{{$essay->title}}" />
                 </a>
                 <div class="p-5">

@@ -42,7 +42,7 @@ Route::get('/daily-facts', [DailyFactsController::class, 'index'])->name('daily-
 
 // phrases
 Route::get('/phrases', [PhrasesController::class, 'index'])->name('phrases.index');
-Route::get('/phrases/{id}', [PhrasesController::class, 'show'])->name('phrases.show');
+Route::get('/phrases/{id}/{title}', [PhrasesController::class, 'show'])->name('phrases.show');
 
 // grammer
 Route::get('/grammer', [GrammerController::class, 'index'])->name('grammer.index');

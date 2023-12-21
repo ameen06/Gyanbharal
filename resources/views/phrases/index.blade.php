@@ -24,7 +24,7 @@
         <h2 class="mt-6 text-2xl font-semibold text-gray-800">Types of Phrases</h2>
         <div class="mt-6 w-full">
             @foreach ($phrases as $phrase)
-            <a href="{{route('phrases.show', $phrase->id)}}" class="w-full px-4 py-2 border-y border-gray-200 text-lg font-semibold inline-flex items-center gap-4 hover:bg-cyan-500 hover:text-white">
+            <a href="{{route('phrases.show', [$phrase->id, Str::slug($phrase->title)])}}" class="w-full px-4 py-2 border-y border-gray-200 text-lg font-semibold inline-flex items-center gap-4 hover:bg-cyan-500 hover:text-white">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: #22d3ee;transform: ;msFilter:;"><path d="M11.999 1.993c-5.514.001-10 4.487-10 10.001s4.486 10 10.001 10c5.513 0 9.999-4.486 10-10 0-5.514-4.486-10-10.001-10.001zM12 19.994c-4.412 0-8.001-3.589-8.001-8s3.589-8 8-8.001C16.411 3.994 20 7.583 20 11.994c-.001 4.411-3.59 8-8 8z"></path><path d="M12 10.994H8v2h4V16l4.005-4.005L12 7.991z"></path></svg>
                 {{$phrase->title}}
             </a>

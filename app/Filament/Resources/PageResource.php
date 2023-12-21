@@ -10,6 +10,7 @@ use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Livewire\Features\SupportFileUploads\TemporaryUploadedFile;
+use Illuminate\support\Str;
 
 class PageResource extends Resource
 {
@@ -30,8 +31,8 @@ class PageResource extends Resource
                             ->required()
                             ->columnSpanFull()
                             ->getUploadedFileNameForStorageUsing(
-                                fn (TemporaryUploadedFile $file): string => (string) str($file->getClientOriginalName())
-                                    ->prepend(time().'-'),
+                                fn (TemporaryUploadedFile $file): string => (string) str(Str::slug($file->getClientOriginalName()))
+                                ->prepend(time().'-')->append('.'.$file->getClientOriginalExtension()),
                             )
                             ->disk('imagekit')
                             ->directory('gyanbharal/pages/')

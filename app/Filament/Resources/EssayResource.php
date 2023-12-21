@@ -3,15 +3,13 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\EssayResource\Pages;
-use App\Filament\Resources\EssayResource\RelationManagers;
 use App\Models\Essay;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Illuminate\support\Str;
 use Livewire\Features\SupportFileUploads\TemporaryUploadedFile;
 
 class EssayResource extends Resource
@@ -31,8 +29,8 @@ class EssayResource extends Resource
                     ->required()
                     ->columnSpanFull()
                     ->getUploadedFileNameForStorageUsing(
-                        fn (TemporaryUploadedFile $file): string => (string) str($file->getClientOriginalName())
-                            ->prepend(time().'-'),
+                        fn (TemporaryUploadedFile $file): string => (string) str(Str::slug($file->getClientOriginalName()))
+                        ->prepend(time().'-')->append('.'.$file->getClientOriginalExtension()),
                     )
                     ->disk('imagekit')
                     ->directory('gyanbharal/essay/'),

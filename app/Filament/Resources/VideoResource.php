@@ -10,6 +10,7 @@ use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Livewire\Features\SupportFileUploads\TemporaryUploadedFile;
+use Illuminate\support\Str;
 
 class VideoResource extends Resource
 {
@@ -28,8 +29,8 @@ class VideoResource extends Resource
                 Forms\Components\FileUpload::make('thumbnail_link')
                     ->required()
                     ->getUploadedFileNameForStorageUsing(
-                        fn (TemporaryUploadedFile $file): string => (string) str($file->getClientOriginalName())
-                            ->prepend(time().'-'),
+                        fn (TemporaryUploadedFile $file): string => (string) str(Str::slug($file->getClientOriginalName()))
+                        ->prepend(time().'-')->append('.'.$file->getClientOriginalExtension()),
                     )
                     ->disk('imagekit')
                     ->directory('gyanbharal/kids/videos')

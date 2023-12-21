@@ -30,7 +30,7 @@
         <div class="mt-6 w-full grid grid-cols-1 md:grid-cols-2 gap-4">
             @foreach ($grammers as $grammer)
             <div class="w-full bg-white border border-gray-200 rounded-lg shadow">
-                <a href="{{route('grammer.show', [$grammer->id, str_replace(" ", "-", $grammer->title)])}}">
+                <a href="{{route('grammer.show', [$grammer->id, Str::slug($grammer->title)])}}">
                     <img class="rounded-t-lg" src="{{env('IMAGEKIT_ENDPOINT').$grammer->image_link}}" alt="{{$grammer->title}}" />
                 </a>
                 <div class="p-5">
