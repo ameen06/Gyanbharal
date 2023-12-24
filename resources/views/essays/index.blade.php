@@ -37,6 +37,18 @@
             @endforeach
         </div>
     </div>
+
+    {{-- ad block --}}
+    <div class="w-full px-4 mt-12">
+        <div>
+            <div class="w-fit bg-slate-100 px-4 py-2 rounded-t-lg">
+                <img src="https://ik.imagekit.io/3bdrc2hss/Google-Adsense-Logo.png?updatedAt=1703415801967" alt="google adsense logo" class="h-4">
+            </div>
+            <div class="w-full h-24 bg-blue-200">
+    
+            </div>
+        </div>
+    </div>
 </div>
 
 @push('scripts')

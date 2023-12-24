@@ -2,13 +2,13 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-D9RH298K5R"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3QKC2PKB3Q"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
 
-        gtag('config', 'G-D9RH298K5R');
+        gtag('config', 'G-3QKC2PKB3Q');
     </script>
 
     <meta charset="utf-8">
@@ -67,5 +67,6 @@
         });
     </script>
     @stack('scripts')
+    <script type='text/javascript' src='//pl21896667.toprevenuegate.com/24/bf/8f/24bf8f5ab2a88691a34e453944884c6d.js'></script>
 </body>
 </html>
