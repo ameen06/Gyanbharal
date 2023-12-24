@@ -27,6 +27,7 @@
 
     @vite(['resources/css/app.css','resources/js/app.js'])
     @stack('styles')
+    <script type='text/javascript' src='//pl21896667.toprevenuegate.com/24/bf/8f/24bf8f5ab2a88691a34e453944884c6d.js'></script>
 </head>
 <body class="antialiased bg-gradient-to-tr from-amber-100 to-amber-50">
     {{-- header --}}
@@ -145,6 +146,5 @@
         });
     </script>
     @stack('scripts')
-    <script type='text/javascript' src='//pl21896667.toprevenuegate.com/24/bf/8f/24bf8f5ab2a88691a34e453944884c6d.js'></script>
 </body>
 </html>

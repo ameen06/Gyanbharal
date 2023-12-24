@@ -30,6 +30,7 @@
     <!-- Styles -->
     @vite(['resources/css/app.css','resources/js/app.js'])
     @stack('styles')
+    <script type='text/javascript' src='//pl21896667.toprevenuegate.com/24/bf/8f/24bf8f5ab2a88691a34e453944884c6d.js'></script>
 </head>
 <body class="font-sans antialiased">
     <x-header>
@@ -67,6 +68,5 @@
         });
     </script>
     @stack('scripts')
-    <script type='text/javascript' src='//pl21896667.toprevenuegate.com/24/bf/8f/24bf8f5ab2a88691a34e453944884c6d.js'></script>
 </body>
 </html>
